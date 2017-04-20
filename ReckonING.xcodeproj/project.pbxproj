@@ -15,6 +15,11 @@
 		0B17F8991EA837ED00A71E79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B17F8971EA837ED00A71E79 /* LaunchScreen.storyboard */; };
 		0B17F8A41EA837EE00A71E79 /* ReckonINGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F8A31EA837EE00A71E79 /* ReckonINGTests.swift */; };
 		0B17F8AF1EA837EE00A71E79 /* ReckonINGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F8AE1EA837EE00A71E79 /* ReckonINGUITests.swift */; };
+		0B17F8BD1EA86C0B00A71E79 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F8BC1EA86C0B00A71E79 /* DetailTableViewController.swift */; };
+		0B17F8BF1EA8C21300A71E79 /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F8BE1EA8C21300A71E79 /* UserProfileCell.swift */; };
+		0B17F8C11EA8C9C100A71E79 /* BankSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F8C01EA8C9C100A71E79 /* BankSummaryCell.swift */; };
+		0B17F8C31EA8DF8900A71E79 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F8C21EA8DF8900A71E79 /* UIColor+Extension.swift */; };
+		0B17F8C61EA8F6D900A71E79 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F8C51EA8F6D900A71E79 /* Style.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		0B17F8AA1EA837EE00A71E79 /* ReckonINGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReckonINGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B17F8AE1EA837EE00A71E79 /* ReckonINGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReckonINGUITests.swift; sourceTree = "<group>"; };
 		0B17F8B01EA837EE00A71E79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B17F8BC1EA86C0B00A71E79 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		0B17F8BE1EA8C21300A71E79 /* UserProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileCell.swift; sourceTree = "<group>"; };
+		0B17F8C01EA8C9C100A71E79 /* BankSummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankSummaryCell.swift; sourceTree = "<group>"; };
+		0B17F8C21EA8DF8900A71E79 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		0B17F8C51EA8F6D900A71E79 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Style.swift; path = Utility/Style.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +111,16 @@
 			children = (
 				0B17F88C1EA837ED00A71E79 /* AppDelegate.swift */,
 				0B17F88E1EA837ED00A71E79 /* MasterViewController.swift */,
-				0B17F8901EA837ED00A71E79 /* DetailViewController.swift */,
+				0B17F8C01EA8C9C100A71E79 /* BankSummaryCell.swift */,
+				0B17F8BC1EA86C0B00A71E79 /* DetailTableViewController.swift */,
+				0B17F8C41EA8F6A200A71E79 /* Utility */,
+				0B17F8C21EA8DF8900A71E79 /* UIColor+Extension.swift */,
+				0B17F8BE1EA8C21300A71E79 /* UserProfileCell.swift */,
 				0B17F8921EA837ED00A71E79 /* Main.storyboard */,
 				0B17F8951EA837ED00A71E79 /* Assets.xcassets */,
 				0B17F8971EA837ED00A71E79 /* LaunchScreen.storyboard */,
 				0B17F89A1EA837ED00A71E79 /* Info.plist */,
+				0B17F8901EA837ED00A71E79 /* DetailViewController.swift */,
 			);
 			path = ReckonING;
 			sourceTree = "<group>";
@@ -126,6 +141,14 @@
 				0B17F8B01EA837EE00A71E79 /* Info.plist */,
 			);
 			path = ReckonINGUITests;
+			sourceTree = "<group>";
+		};
+		0B17F8C41EA8F6A200A71E79 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				0B17F8C51EA8F6D900A71E79 /* Style.swift */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,9 +288,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B17F8C31EA8DF8900A71E79 /* UIColor+Extension.swift in Sources */,
+				0B17F8C11EA8C9C100A71E79 /* BankSummaryCell.swift in Sources */,
+				0B17F8BD1EA86C0B00A71E79 /* DetailTableViewController.swift in Sources */,
+				0B17F8BF1EA8C21300A71E79 /* UserProfileCell.swift in Sources */,
 				0B17F8911EA837ED00A71E79 /* DetailViewController.swift in Sources */,
 				0B17F88F1EA837ED00A71E79 /* MasterViewController.swift in Sources */,
 				0B17F88D1EA837ED00A71E79 /* AppDelegate.swift in Sources */,
+				0B17F8C61EA8F6D900A71E79 /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +449,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = U74S5597C9;
 				INFOPLIST_FILE = ReckonING/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ing.ReckonING;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -434,6 +463,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = U74S5597C9;
 				INFOPLIST_FILE = ReckonING/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ing.ReckonING;
 				PRODUCT_NAME = "$(TARGET_NAME)";
