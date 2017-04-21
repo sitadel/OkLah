@@ -12,7 +12,7 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
-
+    var details = [Any]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +50,10 @@ class MasterViewController: UITableViewController {
         objects.append("DBS")
         objects.append("OCBC")
         objects.append("Citibank")
+        
+        details.append("-$140584.5")
+        details.append("-$71399.5")
+        details.append("$480600.5")
     }
     
     func insertNewObject(_ sender: Any) {
@@ -85,8 +89,15 @@ class MasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let object = objects[indexPath.row] as! String
-        cell.textLabel!.text = object.description
+        if let object = objects[indexPath.row] as? String
+        {
+            cell.textLabel?.text = object.description
+        }
+        if let object = details[indexPath.row] as? String
+        {
+            cell.detailTextLabel?.text = object.description
+        }
+        
         return cell
     }
 
@@ -104,6 +115,11 @@ class MasterViewController: UITableViewController {
         }
     }
 
-
+    // MARK: - Refresh the tableView when orientation changed
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
+    {
+        self.tableView.reloadData()
+    }
 }
 

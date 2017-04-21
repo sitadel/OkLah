@@ -113,9 +113,8 @@
 				0B17F88E1EA837ED00A71E79 /* MasterViewController.swift */,
 				0B17F8C01EA8C9C100A71E79 /* BankSummaryCell.swift */,
 				0B17F8BC1EA86C0B00A71E79 /* DetailTableViewController.swift */,
-				0B17F8C41EA8F6A200A71E79 /* Utility */,
-				0B17F8C21EA8DF8900A71E79 /* UIColor+Extension.swift */,
 				0B17F8BE1EA8C21300A71E79 /* UserProfileCell.swift */,
+				0B17F8C41EA8F6A200A71E79 /* Utility */,
 				0B17F8921EA837ED00A71E79 /* Main.storyboard */,
 				0B17F8951EA837ED00A71E79 /* Assets.xcassets */,
 				0B17F8971EA837ED00A71E79 /* LaunchScreen.storyboard */,
@@ -146,6 +145,7 @@
 		0B17F8C41EA8F6A200A71E79 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				0B17F8C21EA8DF8900A71E79 /* UIColor+Extension.swift */,
 				0B17F8C51EA8F6D900A71E79 /* Style.swift */,
 			);
 			name = Utility;

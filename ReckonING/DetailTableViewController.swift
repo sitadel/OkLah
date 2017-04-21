@@ -38,8 +38,7 @@ class DetailTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Gradient background
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,7 +66,6 @@ class DetailTableViewController: UITableViewController {
             return 44
         }
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -130,7 +128,7 @@ class DetailTableViewController: UITableViewController {
                 {
                 case 0:
                     cell.textLabel?.text = "Cash"
-                    cell.detailTextLabel?.text = "$10,000.50"
+                    cell.detailTextLabel?.text = "$500,000.50"
                     break
                 case 1:
                     cell.textLabel?.text = "Debts"
@@ -166,6 +164,13 @@ class DetailTableViewController: UITableViewController {
             }
             return cell
         }
+    }
+
+    // MARK: - Refresh the tableView when orientation changed
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
+    {
+        //self.tableView.reloadData()
     }
 
     /*

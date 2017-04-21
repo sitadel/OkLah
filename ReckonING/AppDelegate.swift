@@ -23,9 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         let navigationBarAppearace = UINavigationBar.appearance()
         
+        // set the status bar style
+        // Note: the following code will work only if "view controller-based status bar" is set to No in Info.plist
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        
         // set title bar color
-        navigationBarAppearace.tintColor = UIColor.uicolorFromHex(0xFFFFFF, alpha:1.0)
-        navigationBarAppearace.barTintColor = UIColor.uicolorFromHex(0xFF3333, alpha:1.0)
+        navigationBarAppearace.tintColor = Style.navigationBarTintColor
+        navigationBarAppearace.barTintColor = UIColor.uicolorFromHex(Style.darkOrange, alpha:1.0)
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName : Style.navigationBarTitleTextColor]
         
         return true
     }
