@@ -13,6 +13,8 @@ class DetailTableViewController: UITableViewController {
     let USER_PROFILE_SECTION = 0
     let ACCOUNT_BALANCE = 1
     
+    var firstLaunch = true
+    
     var bankName: String? {
         didSet {
             // Update the view.
@@ -32,6 +34,14 @@ class DetailTableViewController: UITableViewController {
 
         // Set background color
         Style.setupTableGradient(view: self.view)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if (firstLaunch)
+        {
+            performSegue(withIdentifier: "AlexaInteractionSegue", sender: self)
+            firstLaunch = false
+        }
     }
 
     override func didReceiveMemoryWarning() {

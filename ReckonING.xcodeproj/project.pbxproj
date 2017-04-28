@@ -20,6 +20,7 @@
 		0B17F8C11EA8C9C100A71E79 /* BankSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F8C01EA8C9C100A71E79 /* BankSummaryCell.swift */; };
 		0B17F8C31EA8DF8900A71E79 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F8C21EA8DF8900A71E79 /* UIColor+Extension.swift */; };
 		0B17F8C61EA8F6D900A71E79 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F8C51EA8F6D900A71E79 /* Style.swift */; };
+		0B17F8DE1EB30C3900A71E79 /* AlexaInteractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F8DD1EB30C3900A71E79 /* AlexaInteractionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		0B17F8C01EA8C9C100A71E79 /* BankSummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankSummaryCell.swift; sourceTree = "<group>"; };
 		0B17F8C21EA8DF8900A71E79 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		0B17F8C51EA8F6D900A71E79 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Style.swift; path = Utility/Style.swift; sourceTree = "<group>"; };
+		0B17F8DD1EB30C3900A71E79 /* AlexaInteractionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlexaInteractionViewController.swift; path = Amazon/AlexaInteractionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		0B17F88B1EA837ED00A71E79 /* ReckonING */ = {
 			isa = PBXGroup;
 			children = (
+				0B17F8DC1EB30C2500A71E79 /* Amazon */,
 				0B17F88C1EA837ED00A71E79 /* AppDelegate.swift */,
 				0B17F88E1EA837ED00A71E79 /* MasterViewController.swift */,
 				0B17F8C01EA8C9C100A71E79 /* BankSummaryCell.swift */,
@@ -149,6 +152,14 @@
 				0B17F8C51EA8F6D900A71E79 /* Style.swift */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		0B17F8DC1EB30C2500A71E79 /* Amazon */ = {
+			isa = PBXGroup;
+			children = (
+				0B17F8DD1EB30C3900A71E79 /* AlexaInteractionViewController.swift */,
+			);
+			name = Amazon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +301,7 @@
 			files = (
 				0B17F8C31EA8DF8900A71E79 /* UIColor+Extension.swift in Sources */,
 				0B17F8C11EA8C9C100A71E79 /* BankSummaryCell.swift in Sources */,
+				0B17F8DE1EB30C3900A71E79 /* AlexaInteractionViewController.swift in Sources */,
 				0B17F8BD1EA86C0B00A71E79 /* DetailTableViewController.swift in Sources */,
 				0B17F8BF1EA8C21300A71E79 /* UserProfileCell.swift in Sources */,
 				0B17F8911EA837ED00A71E79 /* DetailViewController.swift in Sources */,
@@ -548,6 +560,7 @@
 				0B17F8B51EA837EE00A71E79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B17F8B61EA837EE00A71E79 /* Build configuration list for PBXNativeTarget "ReckonINGTests" */ = {
 			isa = XCConfigurationList;
@@ -556,6 +569,7 @@
 				0B17F8B81EA837EE00A71E79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B17F8B91EA837EE00A71E79 /* Build configuration list for PBXNativeTarget "ReckonINGUITests" */ = {
 			isa = XCConfigurationList;
@@ -564,6 +578,7 @@
 				0B17F8BB1EA837EE00A71E79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
