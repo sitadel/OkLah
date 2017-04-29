@@ -37,11 +37,14 @@ class DetailTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        // Disable the Alexa Interaction screen upload refresh.
+        /*
         if (firstLaunch)
         {
             performSegue(withIdentifier: "AlexaInteractionSegue", sender: self)
             firstLaunch = false
         }
+         */
     }
 
     override func didReceiveMemoryWarning() {

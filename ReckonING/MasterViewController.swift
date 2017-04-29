@@ -40,6 +40,9 @@ class MasterViewController: UITableViewController {
 
         // Select the default bank
         self.tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .top)
+        
+        // Load account summary
+        loadAccountSummary()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,7 +50,49 @@ class MasterViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - load account summary
+    func loadAccountSummary()
+    {
+        let urlString = URL(string: "https://reckoning.pagekite.me/ReckonINGExample/getMyAccounts?user_name=superhero")
+        if let url = urlString {
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    print(error?.localizedDescription)
+                } else {
+                    do {
+                        if let data = data,
+                            let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                            let accounts = json["accountList"] as? [[String: Any]]
+                        {
+                            // clear
+                            self.objects.removeAll()
+                            self.details.removeAll()
+                            
+                            // parse each account
+                            for account in accounts {
+                                if  let name = account["bank_fullname"] as? String,
+                                    let amount = account["amount"] as? String,
+                                    let currency = account["currency"] as? String
+                                {
+                                    self.objects.append(name)
+                                    self.details.append("\(currency)\(amount)")
+                                }
+                            }
+                            
+                            // refresh
+                            self.tableView.reloadData()
+                        }
+                    } catch {
+                        print("Error deserializing JSON: \(error)")
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+    
     // MARK: - initialize data
+    
     func initData()
     {
         objects.append("DBS")
