@@ -15,10 +15,15 @@ class DetailTableViewController: UITableViewController {
     
     var firstLaunch = true
     
+    var account: Account? {
+        didSet {
+        }
+    }
+    
     var bankName: String? {
         didSet {
             // Update the view.
-            NSLog("detailItem\(bankName)")
+            //NSLog("detailItem\(bankName)")
         }
     }
         
@@ -161,7 +166,11 @@ class DetailTableViewController: UITableViewController {
                 {
                 case 0:
                     cell.textLabel?.text = "Cash"
-                    cell.detailTextLabel?.text = "$0.00"
+                    if let currency = account?.currency,
+                        let amount = account?.cashAmount
+                    {
+                        cell.detailTextLabel?.text = "\(currency) \(amount)"
+                    }
                     break
                 case 1:
                     cell.textLabel?.text = "Debts"
@@ -177,13 +186,6 @@ class DetailTableViewController: UITableViewController {
             }
             return cell
         }
-    }
-
-    // MARK: - Refresh the tableView when orientation changed
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
-    {
-        //self.tableView.reloadData()
     }
 
     /*

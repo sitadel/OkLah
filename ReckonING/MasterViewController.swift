@@ -11,6 +11,7 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
+    var accounts = [Account]()
     var objects = [Any]()
     var details = [Any]()
 
@@ -40,6 +41,7 @@ class MasterViewController: UITableViewController {
 
         // Select the default bank
         self.tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .top)
+        performSegue(withIdentifier: "showDetail", sender: self)
         
         // Load account summary
         loadAccountSummary()
@@ -53,11 +55,14 @@ class MasterViewController: UITableViewController {
     // MARK: - load account summary
     func loadAccountSummary()
     {
-        let urlString = URL(string: "https://reckoning.pagekite.me/ReckonINGExample/getMyAccounts?user_name=superhero")
+        let urlString = URL(string: "https://myreckoning.herokuapp.com/ReckonINGExample/getMyAccounts?user_name=superhero")
         if let url = urlString {
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if error != nil {
-                    print(error?.localizedDescription)
+                    // Display error message
+                    let alert = UIAlertController(title: "Wrong Data Format", message: "\(error?.localizedDescription)", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 } else {
                     do {
                         if let data = data,
@@ -65,25 +70,40 @@ class MasterViewController: UITableViewController {
                             let accounts = json["accountList"] as? [[String: Any]]
                         {
                             // clear
+                            self.accounts.removeAll()
                             self.objects.removeAll()
                             self.details.removeAll()
                             
                             // parse each account
                             for account in accounts {
+                                if let ac = Account(attributes: account)
+                                {
+                                    self.accounts.append(ac)
+                                }
+                                
                                 if  let name = account["bank_fullname"] as? String,
                                     let amount = account["amount"] as? String,
                                     let currency = account["currency"] as? String
                                 {
                                     self.objects.append(name)
-                                    self.details.append("\(currency)\(amount)")
+                                    self.details.append("\(currency) \(amount)")
                                 }
                             }
                             
                             // refresh
-                            self.tableView.reloadData()
+                            DispatchQueue.main.async(execute: {
+                                self.tableView.reloadData()
+                                
+                                // select the first bank as default bank
+                                self.tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .top)
+                                self.performSegue(withIdentifier: "showDetail", sender: self)
+                            })
                         }
                     } catch {
-                        print("Error deserializing JSON: \(error)")
+                        // Display error message
+                        let alert = UIAlertController(title: "Wrong Data Format", message: "\(error)", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                     }
                 }
             }
@@ -117,6 +137,12 @@ class MasterViewController: UITableViewController {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row] as! String
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailTableViewController
+                
+                if indexPath.row < accounts.count
+                {
+                    controller.account = accounts[indexPath.row]
+                }
+                
                 controller.bankName = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
@@ -148,7 +174,9 @@ class MasterViewController: UITableViewController {
         
         return cell
     }
-
+    
+    // Disable editing of master table
+    /*
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
@@ -162,12 +190,14 @@ class MasterViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-
+     */
+    
     // MARK: - Refresh the tableView when orientation changed
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
     {
         self.tableView.reloadData()
+        performSegue(withIdentifier: "showDetail", sender: self)
     }
 }
 
