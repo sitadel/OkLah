@@ -160,9 +160,21 @@ class MasterViewController: UITableViewController {
         return objects.count
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 66
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
+        if cell.isSelected
+        {
+            cell.backgroundColor =  UIColor.black
+        } else
+        {
+            setAlternativeBackground(cell: cell, indexPath: indexPath)
+        }
+        
         if let object = objects[indexPath.row] as? String
         {
             cell.textLabel?.text = object.description
@@ -173,6 +185,16 @@ class MasterViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    func setAlternativeBackground(cell: UITableViewCell, indexPath: IndexPath)
+    {
+        // Alternating row backgrounds colors
+        if indexPath.row % 2 == 1 {
+            cell.backgroundColor = UIColor.uicolorFromHex(Style.darkOrange, alpha:1.0)
+        } else {
+            cell.backgroundColor = UIColor.orange
+        }
     }
     
     // Disable editing of master table
