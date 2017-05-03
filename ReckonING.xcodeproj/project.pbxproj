@@ -21,6 +21,8 @@
 		0B17F8C31EA8DF8900A71E79 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F8C21EA8DF8900A71E79 /* UIColor+Extension.swift */; };
 		0B17F8C61EA8F6D900A71E79 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F8C51EA8F6D900A71E79 /* Style.swift */; };
 		0B17F8DE1EB30C3900A71E79 /* AlexaInteractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F8DD1EB30C3900A71E79 /* AlexaInteractionViewController.swift */; };
+		0B5D40161EBA0652004C2699 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5D40151EBA0652004C2699 /* Cache.swift */; };
+		0B5D40181EBA185C004C2699 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5D40171EBA185C004C2699 /* Server.swift */; };
 		0B75715A1EB83FD60010C255 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7571591EB83FD60010C255 /* Account.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		0B17F8C21EA8DF8900A71E79 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		0B17F8C51EA8F6D900A71E79 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Style.swift; path = Utility/Style.swift; sourceTree = "<group>"; };
 		0B17F8DD1EB30C3900A71E79 /* AlexaInteractionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlexaInteractionViewController.swift; path = Amazon/AlexaInteractionViewController.swift; sourceTree = "<group>"; };
+		0B5D40151EBA0652004C2699 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cache.swift; path = Utility/Cache.swift; sourceTree = "<group>"; };
+		0B5D40171EBA185C004C2699 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Server.swift; path = Utility/Server.swift; sourceTree = "<group>"; };
 		0B7571591EB83FD60010C255 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Utility/Account.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +157,8 @@
 			children = (
 				0B17F8C21EA8DF8900A71E79 /* UIColor+Extension.swift */,
 				0B17F8C51EA8F6D900A71E79 /* Style.swift */,
+				0B5D40151EBA0652004C2699 /* Cache.swift */,
+				0B5D40171EBA185C004C2699 /* Server.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -314,11 +320,13 @@
 				0B17F8C11EA8C9C100A71E79 /* BankSummaryCell.swift in Sources */,
 				0B17F8DE1EB30C3900A71E79 /* AlexaInteractionViewController.swift in Sources */,
 				0B17F8BD1EA86C0B00A71E79 /* DetailTableViewController.swift in Sources */,
+				0B5D40161EBA0652004C2699 /* Cache.swift in Sources */,
 				0B17F8BF1EA8C21300A71E79 /* UserProfileCell.swift in Sources */,
 				0B75715A1EB83FD60010C255 /* Account.swift in Sources */,
 				0B17F8911EA837ED00A71E79 /* DetailViewController.swift in Sources */,
 				0B17F88F1EA837ED00A71E79 /* MasterViewController.swift in Sources */,
 				0B17F88D1EA837ED00A71E79 /* AppDelegate.swift in Sources */,
+				0B5D40181EBA185C004C2699 /* Server.swift in Sources */,
 				0B17F8C61EA8F6D900A71E79 /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

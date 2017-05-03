@@ -33,18 +33,24 @@ class MasterViewController: UITableViewController {
         
         // Set the Master background color
         Style.setupTableGradient(view: self.view)
+        
+        // Set the refresh control
+        self.refreshControl?.addTarget(self, action:#selector(self.handleRefresh), for: UIControlEvents.valueChanged)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
-
-        // Select the default bank
-        self.tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .top)
-        performSegue(withIdentifier: "showDetail", sender: self)
         
-        // Load account summary
-        loadAccountSummary()
+        // Setup account from cache or server
+        if let accounts = Cache.sharedInstance.getAccounts()
+        {
+            setupAccounts(accounts: accounts)
+        }
+        else
+        {
+            loadAccountSummary()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,11 +58,19 @@ class MasterViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - handle refresh
+    func handleRefresh(refreshControl: UIRefreshControl)
+    {
+        Cache.sharedInstance.clearAccounts()
+        loadAccountSummary()
+        refreshControl.endRefreshing()
+    }
+    
     // MARK: - load account summary
+    
     func loadAccountSummary()
     {
-        let urlString = URL(string: "https://myreckoning.herokuapp.com/ReckonINGExample/getMyAccounts?user_name=superhero")
-        if let url = urlString {
+        if let url = Server.getAccounts(username: "superhero") {
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if error != nil {
                     // Display error message
@@ -69,35 +83,10 @@ class MasterViewController: UITableViewController {
                             let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
                             let accounts = json["accountList"] as? [[String: Any]]
                         {
-                            // clear
-                            self.accounts.removeAll()
-                            self.objects.removeAll()
-                            self.details.removeAll()
+                            // store in cache
+                            Cache.sharedInstance.setAccounts(object: accounts)
                             
-                            // parse each account
-                            for account in accounts {
-                                if let ac = Account(attributes: account)
-                                {
-                                    self.accounts.append(ac)
-                                }
-                                
-                                if  let name = account["bank_fullname"] as? String,
-                                    let amount = account["amount"] as? String,
-                                    let currency = account["currency"] as? String
-                                {
-                                    self.objects.append(name)
-                                    self.details.append("\(currency) \(amount)")
-                                }
-                            }
-                            
-                            // refresh
-                            DispatchQueue.main.async(execute: {
-                                self.tableView.reloadData()
-                                
-                                // select the first bank as default bank
-                                self.tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .top)
-                                self.performSegue(withIdentifier: "showDetail", sender: self)
-                            })
+                            self.setupAccounts(accounts: accounts)
                         }
                     } catch {
                         // Display error message
@@ -109,6 +98,39 @@ class MasterViewController: UITableViewController {
             }
             task.resume()
         }
+    }
+    
+    func setupAccounts(accounts: [[String:Any]])
+    {
+        // clear
+        self.accounts.removeAll()
+        self.objects.removeAll()
+        self.details.removeAll()
+        
+        // parse each account
+        for account in accounts {
+            if let ac = Account(attributes: account)
+            {
+                self.accounts.append(ac)
+            }
+            
+            if  let name = account["bank_fullname"] as? String,
+                let amount = account["amount"] as? String,
+                let currency = account["currency"] as? String
+            {
+                self.objects.append(name)
+                self.details.append("\(currency) \(amount)")
+            }
+        }
+        
+        // refresh
+        DispatchQueue.main.async(execute: {
+            self.tableView.reloadData()
+            
+            // select the first bank as default bank
+            self.tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .top)
+            self.performSegue(withIdentifier: "showDetail", sender: self)
+        })
     }
     
     // MARK: - initialize data
