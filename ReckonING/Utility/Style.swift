@@ -11,11 +11,19 @@ import UIKit
 
 class Style
 {
+    // predefined colors
     static let darkOrange = 0xFF2900 as UInt32
     static let lightOrange = 0xFF9500 as UInt32
+    static let darkBlue = 0x1F0095 as UInt32
     
+    // colors for navigation bar
     static let navigationBarTintColor = UIColor.white
     static let navigationBarTitleTextColor = UIColor.white
+    
+    // colors for master view
+    static let masterViewCellSelectedBackground = UIColor.uicolorFromHex(darkBlue, alpha:1.0)
+    static let masterViewTextColor = UIColor.white
+    static let masterViewSelectedTextColor = UIColor.white
     
     class func setupTableGradient(view:UIView)
     {

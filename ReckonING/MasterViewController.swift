@@ -167,14 +167,19 @@ class MasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
+        // Set cell background color
         if cell.isSelected
         {
-            cell.backgroundColor =  UIColor.black
-        } else
+            cell.backgroundColor =  Style.masterViewCellSelectedBackground
+            cell.textLabel?.textColor = Style.masterViewSelectedTextColor
+        }
+        else
         {
             setAlternativeBackground(cell: cell, indexPath: indexPath)
+            cell.textLabel?.textColor = Style.masterViewTextColor
         }
         
+        // Fill in cell details
         if let object = objects[indexPath.row] as? String
         {
             cell.textLabel?.text = object.description
@@ -187,6 +192,21 @@ class MasterViewController: UITableViewController {
         return cell
     }
     
+    func setCellBackground(cell: UITableViewCell, indexPath: IndexPath)
+    {
+        // Set cell background color
+        if cell.isSelected
+        {
+            cell.backgroundColor =  Style.masterViewCellSelectedBackground
+            cell.textLabel?.textColor = Style.masterViewSelectedTextColor
+        }
+        else
+        {
+            setAlternativeBackground(cell: cell, indexPath: indexPath)
+            cell.textLabel?.textColor = Style.masterViewTextColor
+        }
+    }
+    
     func setAlternativeBackground(cell: UITableViewCell, indexPath: IndexPath)
     {
         // Alternating row backgrounds colors
@@ -194,6 +214,22 @@ class MasterViewController: UITableViewController {
             cell.backgroundColor = UIColor.uicolorFromHex(Style.darkOrange, alpha:1.0)
         } else {
             cell.backgroundColor = UIColor.orange
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        if let cell = self.tableView.cellForRow(at: indexPath)
+        {
+            setCellBackground(cell: cell, indexPath: indexPath)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
+    {
+        if let cell = self.tableView.cellForRow(at: indexPath)
+        {
+            setCellBackground(cell: cell, indexPath: indexPath)
         }
     }
     
