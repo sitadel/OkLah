@@ -13,8 +13,17 @@ class Server
     static let baseURL = "https://myreckoning.herokuapp.com/ReckonINGExample/"
     static let accountURL = baseURL + "getMyAccounts?"
     
+    static let transactionURL = baseURL + "getTransactionHistoryById?"
+    
     class func getAccounts(username: String) -> URL?
     {
         return URL(string: Server.accountURL + "user_name=" + username)
+    }
+    
+    class func getTransactions(username: String, bankId: String, account: String) -> URL?
+    {
+        return URL(string: Server.transactionURL + "user_name=" + username + "&" +
+            "bank_id=" + bankId + "&" +
+            "account=" + account)
     }
 }

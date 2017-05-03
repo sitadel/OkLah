@@ -10,8 +10,11 @@ import UIKit
 
 class DetailTableViewController: UITableViewController {
 
+    let NUMBER_OF_SECTION = 3
     let USER_PROFILE_SECTION = 0
-    let ACCOUNT_BALANCE = 1
+    let USER_ACCOUNT_SUMMARY_SECTION = 1
+    let USER_TRANSACTION_SECTION = 2
+    //let ACCOUNT_BALANCE = 1
     
     let AC_ASSET = "Available Balance"
     let AC_LIABILITY = "Liability"
@@ -63,16 +66,17 @@ class DetailTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return NUMBER_OF_SECTION
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == USER_PROFILE_SECTION
+        if section == USER_PROFILE_SECTION || section == USER_TRANSACTION_SECTION
         {
             return 1
         }
         else
         {
+            //section == USER_ACCOUNT_SUMMARY_SECTION
             return 2
         }
     }
@@ -98,7 +102,7 @@ class DetailTableViewController: UITableViewController {
             
             return cell
         }
-        else
+        else if indexPath.section == USER_ACCOUNT_SUMMARY_SECTION
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AccountBalanceCell", for: indexPath)
             cell.backgroundColor = UIColor.clear
@@ -188,6 +192,15 @@ class DetailTableViewController: UITableViewController {
                 }
             }
             return cell
+        }
+        else
+        {
+            // USER_TRANSACTION_SECTION
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ViewTransactionsCell", for: indexPath)
+            cell.backgroundColor = UIColor.clear
+
+            cell.textLabel?.text = "View Transactions"
+            return cell;
         }
     }
 

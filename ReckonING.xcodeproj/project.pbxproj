@@ -23,6 +23,8 @@
 		0B17F8DE1EB30C3900A71E79 /* AlexaInteractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17F8DD1EB30C3900A71E79 /* AlexaInteractionViewController.swift */; };
 		0B5D40161EBA0652004C2699 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5D40151EBA0652004C2699 /* Cache.swift */; };
 		0B5D40181EBA185C004C2699 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5D40171EBA185C004C2699 /* Server.swift */; };
+		0B5D401A1EBA27FF004C2699 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5D40191EBA27FF004C2699 /* TransactionViewController.swift */; };
+		0B5D401C1EBA2A1B004C2699 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5D401B1EBA2A1B004C2699 /* Transaction.swift */; };
 		0B75715A1EB83FD60010C255 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7571591EB83FD60010C255 /* Account.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 		0B17F8DD1EB30C3900A71E79 /* AlexaInteractionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlexaInteractionViewController.swift; path = Amazon/AlexaInteractionViewController.swift; sourceTree = "<group>"; };
 		0B5D40151EBA0652004C2699 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cache.swift; path = Utility/Cache.swift; sourceTree = "<group>"; };
 		0B5D40171EBA185C004C2699 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Server.swift; path = Utility/Server.swift; sourceTree = "<group>"; };
+		0B5D40191EBA27FF004C2699 /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		0B5D401B1EBA2A1B004C2699 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Transaction.swift; path = Entity/Transaction.swift; sourceTree = "<group>"; };
 		0B7571591EB83FD60010C255 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Utility/Account.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +127,7 @@
 				0B17F88E1EA837ED00A71E79 /* MasterViewController.swift */,
 				0B17F8C01EA8C9C100A71E79 /* BankSummaryCell.swift */,
 				0B17F8BC1EA86C0B00A71E79 /* DetailTableViewController.swift */,
+				0B5D40191EBA27FF004C2699 /* TransactionViewController.swift */,
 				0B17F8BE1EA8C21300A71E79 /* UserProfileCell.swift */,
 				0B17F8C41EA8F6A200A71E79 /* Utility */,
 				0B17F8921EA837ED00A71E79 /* Main.storyboard */,
@@ -175,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				0B7571591EB83FD60010C255 /* Account.swift */,
+				0B5D401B1EBA2A1B004C2699 /* Transaction.swift */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B5D401C1EBA2A1B004C2699 /* Transaction.swift in Sources */,
 				0B17F8C31EA8DF8900A71E79 /* UIColor+Extension.swift in Sources */,
 				0B17F8C11EA8C9C100A71E79 /* BankSummaryCell.swift in Sources */,
 				0B17F8DE1EB30C3900A71E79 /* AlexaInteractionViewController.swift in Sources */,
@@ -327,6 +334,7 @@
 				0B17F88F1EA837ED00A71E79 /* MasterViewController.swift in Sources */,
 				0B17F88D1EA837ED00A71E79 /* AppDelegate.swift in Sources */,
 				0B5D40181EBA185C004C2699 /* Server.swift in Sources */,
+				0B5D401A1EBA27FF004C2699 /* TransactionViewController.swift in Sources */,
 				0B17F8C61EA8F6D900A71E79 /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
