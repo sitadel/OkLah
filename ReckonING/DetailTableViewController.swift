@@ -13,6 +13,9 @@ class DetailTableViewController: UITableViewController {
     let USER_PROFILE_SECTION = 0
     let ACCOUNT_BALANCE = 1
     
+    let AC_ASSET = "Available Balance"
+    let AC_LIABILITY = "Liability"
+    
     var firstLaunch = true
     
     var account: Account? {
@@ -70,7 +73,7 @@ class DetailTableViewController: UITableViewController {
         }
         else
         {
-            return 3
+            return 2
         }
     }
 
@@ -105,16 +108,16 @@ class DetailTableViewController: UITableViewController {
                 switch indexPath.row
                 {
                 case 0:
-                    cell.textLabel?.text = "Cash"
+                    cell.textLabel?.text = AC_ASSET
                     cell.detailTextLabel?.text = "$12,615.50"
                     break
                 case 1:
-                    cell.textLabel?.text = "Debts"
-                    cell.detailTextLabel?.text = "$3,200.00"
+                    cell.textLabel?.text = AC_LIABILITY
+                    cell.detailTextLabel?.text = "$150,000.00"
                     break
                 case 2:
                     cell.textLabel?.text = "Loan"
-                    cell.detailTextLabel?.text = "$150,000.00"
+                    cell.detailTextLabel?.text = "$8,800.00"
                     break
                 default:
                     break
@@ -125,11 +128,11 @@ class DetailTableViewController: UITableViewController {
                 switch indexPath.row
                 {
                 case 0:
-                    cell.textLabel?.text = "Cash"
+                    cell.textLabel?.text = AC_ASSET
                     cell.detailTextLabel?.text = "$15,000.50"
                     break
                 case 1:
-                    cell.textLabel?.text = "Debts"
+                    cell.textLabel?.text = AC_LIABILITY
                     cell.detailTextLabel?.text = "$6,400.00"
                     break
                 case 2:
@@ -145,11 +148,11 @@ class DetailTableViewController: UITableViewController {
                 switch indexPath.row
                 {
                 case 0:
-                    cell.textLabel?.text = "Cash"
+                    cell.textLabel?.text = AC_ASSET
                     cell.detailTextLabel?.text = "$500,000.50"
                     break
                 case 1:
-                    cell.textLabel?.text = "Debts"
+                    cell.textLabel?.text = AC_LIABILITY
                     cell.detailTextLabel?.text = "$10,400.00"
                     break
                 case 2:
@@ -165,7 +168,7 @@ class DetailTableViewController: UITableViewController {
                 switch indexPath.row
                 {
                 case 0:
-                    cell.textLabel?.text = "Cash"
+                    cell.textLabel?.text = AC_ASSET
                     if let currency = account?.currency,
                         let amount = account?.cashAmount
                     {
@@ -173,7 +176,7 @@ class DetailTableViewController: UITableViewController {
                     }
                     break
                 case 1:
-                    cell.textLabel?.text = "Debts"
+                    cell.textLabel?.text = AC_LIABILITY
                     cell.detailTextLabel?.text = "$0.00"
                     break
                 case 2:
