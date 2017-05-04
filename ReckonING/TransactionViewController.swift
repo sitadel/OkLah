@@ -10,8 +10,13 @@ import UIKit
 
 class TransactionViewController: UITableViewController {
 
+    let MAX_TRANSACTION = 5
     var transactions = [Transaction]()
 
+    @IBAction func doneAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -79,6 +84,10 @@ class TransactionViewController: UITableViewController {
             if let trans = Transaction(attributes: t)
             {
                 self.transactions.append(trans)
+                if self.transactions.count >= MAX_TRANSACTION
+                {
+                    break;
+                }
             }
         }
         
@@ -103,8 +112,10 @@ class TransactionViewController: UITableViewController {
 
         // Configure the cell...
         cell.backgroundColor = .clear
-        cell.textLabel?.text = self.transactions[indexPath.row].toAccount
-        cell.detailTextLabel?.text = self.transactions[indexPath.row].newBalance
+        
+        let trans = self.transactions[indexPath.row]
+        cell.textLabel?.text = "\(trans.timeStamp) : Balance \(trans.newBalance)"
+        cell.detailTextLabel?.text = "\(trans.description) transfers \(trans.amount) \(trans.toAccount)"
 
         return cell
     }
