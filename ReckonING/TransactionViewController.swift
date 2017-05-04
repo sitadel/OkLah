@@ -107,17 +107,25 @@ class TransactionViewController: UITableViewController {
         return self.transactions.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as? TransactionTableViewCell
+        {
 
         // Configure the cell...
         cell.backgroundColor = .clear
         
         let trans = self.transactions[indexPath.row]
-        cell.textLabel?.text = "\(trans.timeStamp) : Balance \(trans.newBalance)"
-        cell.detailTextLabel?.text = "\(trans.description) transfers \(trans.amount) \(trans.toAccount)"
+        cell.balanceLabel.text = "\(trans.balanceCcy) \(trans.newBalance)"
+        cell.dateLabel.text = "\(trans.getTransactionTime())"
+        cell.transactionLabel.text = "\(trans.description) transfers \(trans.amount) to \(trans.toAccount)"
 
         return cell
+        }
+        else
+        {
+            return tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath);
+        }
     }
 
     /*

@@ -65,7 +65,6 @@ class MasterViewController: UITableViewController {
     {
         Cache.sharedInstance.clearAccounts()
         loadAccountSummary()
-        refreshControl.endRefreshing()
     }
     
     // MARK: - load account summary
@@ -96,6 +95,12 @@ class MasterViewController: UITableViewController {
                         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
                     }
+                }
+                
+                // End refreshing
+                if (self.refreshControl?.isRefreshing)!
+                {
+                    self.refreshControl?.endRefreshing()
                 }
             }
             task.resume()
