@@ -9,6 +9,16 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>SiriExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>SiriExtensionUI.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -23,6 +33,16 @@
 			<true/>
 		</dict>
 		<key>0B17F8A91EA837EE00A71E79</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0B5D40231EBBF32D004C2699</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0B5D402C1EBBF32D004C2699</key>
 		<dict>
 			<key>primary</key>
 			<true/>

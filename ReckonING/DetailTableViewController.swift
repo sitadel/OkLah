@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Intents
 
 class DetailTableViewController: UITableViewController {
 
@@ -36,11 +37,39 @@ class DetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // Check Siri authorization status
+        if #available(iOS 10.0, *) {
+            switch INPreferences.siriAuthorizationStatus()
+            {
+            case .authorized:
+                print("Siri Authorized")
+                break
+            case .denied:
+                print("Siri Denied")
+                break;
+            default:
+                print("Siri Other status")
+            }
+        }
+        
+        // Ask permission to access Siri
+        if #available(iOS 10.0, *) {
+            INPreferences.requestSiriAuthorization { authorizationStatus in
+                switch authorizationStatus {
+                case .authorized:
+                    print("Authorized")
+                default:
+                    print("Not Authorized")
+                }
+            }
+        } else {
+            // Display message that Siri is not supported
+            let alert = UIAlertController(title: "Siri ReckonING not available", message: "Siri ReckonING requires iOS 10 and above.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        // set the title bar
         self.navigationItem.title = bankName
 
         // Set background color
