@@ -14,6 +14,7 @@ class Server
     
     static let accountURL = baseURL + "getMyAccounts?"
     static let transactionURL = baseURL + "getTransactionHistoryById?"
+    static let createTransaction = baseURL + "createTransaction/"
     
     class func getAccounts(username: String) -> URL?
     {
@@ -25,5 +26,17 @@ class Server
         return URL(string: Server.transactionURL + "user_name=" + username + "&" +
             "bank_id=" + bankId + "&" +
             "account=" + account)
+    }
+    
+    //https://my-reckoning.herokuapp.com/ReckonINGExample/createTransaction/iamsam?frombank_id=at02-0182--01&fromid=iamsam_spain&amount=20&tobank_id=at02-1465--01&toid=iamben_ing
+    class func createTransaction(me: String, fromBankId: String, fromId: String, amount: Decimal, toBankId: String, toId: String) -> URL?
+    {
+        return URL(string: Server.createTransaction +
+            me + "?" +
+            "frombank_id=" + fromBankId + "&" +
+            "fromid=" + fromId + "&" +
+            "amount=" + "20" + "&" +
+            "tobank_id=" + toBankId + "&" +
+            "toid=" + toId);
     }
 }

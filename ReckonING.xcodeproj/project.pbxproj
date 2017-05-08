@@ -33,6 +33,7 @@
 		0B5D403A1EBBF32D004C2699 /* SiriExtensionUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0B5D402D1EBBF32D004C2699 /* SiriExtensionUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0B5D403D1EBBF32D004C2699 /* SiriExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0B5D40241EBBF32D004C2699 /* SiriExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0B75715A1EB83FD60010C255 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7571591EB83FD60010C255 /* Account.swift */; };
+		0B9F612D1EC0351A00E8FAA8 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5D40171EBA185C004C2699 /* Server.swift */; };
 		992561B81EBDB296002B64B4 /* DetailedPromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992561B41EBDB296002B64B4 /* DetailedPromoViewController.swift */; };
 		992561B91EBDB296002B64B4 /* PromoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992561B51EBDB296002B64B4 /* PromoCell.swift */; };
 		992561BA1EBDB296002B64B4 /* PromoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992561B61EBDB296002B64B4 /* PromoTableViewController.swift */; };
@@ -536,6 +537,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B9F612D1EC0351A00E8FAA8 /* Server.swift in Sources */,
 				0B5D40271EBBF32D004C2699 /* IntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

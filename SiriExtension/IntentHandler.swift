@@ -22,11 +22,30 @@ extension IntentHandler: INSendPaymentIntentHandling {
     func handle(sendPayment intent: INSendPaymentIntent, completion: @escaping (INSendPaymentIntentResponse) -> Void) {
         // Check that we have valid values for payee and currencyAmount
         guard let payee = intent.payee, let amount = intent.currencyAmount else {
+            print("Incomplete Siri Intent command parameters: missing Payee or Amount.")
             return completion(INSendPaymentIntentResponse(code: .unspecified, userActivity: nil))
         }
         // Make your payment!
         print("Sending \(amount) payment to \(payee)!")
+        makePayment()
         completion(INSendPaymentIntentResponse(code: .success, userActivity: nil))
+    }
+    
+    //https://my-reckoning.herokuapp.com/ReckonINGExample/createTransaction/iamsam?frombank_id=at02-0182--01&fromid=iamsam_spain&amount=20&tobank_id=at02-1465--01&toid=iamben_ing
+    func makePayment()
+    {
+        if let url = Server.createTransaction(me:"iamsam", fromBankId: "at02-0182--01", fromId: "iamsam_spain", amount: 20, toBankId: "at02-1465--01", toId: "iamben_ing")
+        {
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    // Display error message
+                    print ("error in Siri Intent makePayment");
+                } else {
+                    print ("success in Siri Intent makePayment");
+                }
+            }
+            task.resume()
+        }
     }
 }
 
