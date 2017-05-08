@@ -33,6 +33,9 @@
 		0B5D403A1EBBF32D004C2699 /* SiriExtensionUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0B5D402D1EBBF32D004C2699 /* SiriExtensionUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0B5D403D1EBBF32D004C2699 /* SiriExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0B5D40241EBBF32D004C2699 /* SiriExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0B75715A1EB83FD60010C255 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7571591EB83FD60010C255 /* Account.swift */; };
+		992561B81EBDB296002B64B4 /* DetailedPromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992561B41EBDB296002B64B4 /* DetailedPromoViewController.swift */; };
+		992561B91EBDB296002B64B4 /* PromoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992561B51EBDB296002B64B4 /* PromoCell.swift */; };
+		992561BA1EBDB296002B64B4 /* PromoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992561B61EBDB296002B64B4 /* PromoTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +120,9 @@
 		0B5D40351EBBF32D004C2699 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		0B5D40371EBBF32D004C2699 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B7571591EB83FD60010C255 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Utility/Account.swift; sourceTree = "<group>"; };
+		992561B41EBDB296002B64B4 /* DetailedPromoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedPromoViewController.swift; sourceTree = "<group>"; };
+		992561B51EBDB296002B64B4 /* PromoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoCell.swift; sourceTree = "<group>"; };
+		992561B61EBDB296002B64B4 /* PromoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +193,9 @@
 		0B17F88B1EA837ED00A71E79 /* ReckonING */ = {
 			isa = PBXGroup;
 			children = (
+				992561B41EBDB296002B64B4 /* DetailedPromoViewController.swift */,
+				992561B51EBDB296002B64B4 /* PromoCell.swift */,
+				992561B61EBDB296002B64B4 /* PromoTableViewController.swift */,
 				0B5D401F1EBBF1EF004C2699 /* ReckonING.entitlements */,
 				0B7571581EB83FAB0010C255 /* Entity */,
 				0B17F8DC1EB30C2500A71E79 /* Amazon */,
@@ -494,10 +503,13 @@
 				0B17F8BD1EA86C0B00A71E79 /* DetailTableViewController.swift in Sources */,
 				0B5D40161EBA0652004C2699 /* Cache.swift in Sources */,
 				0B17F8BF1EA8C21300A71E79 /* UserProfileCell.swift in Sources */,
+				992561B91EBDB296002B64B4 /* PromoCell.swift in Sources */,
+				992561BA1EBDB296002B64B4 /* PromoTableViewController.swift in Sources */,
 				0B75715A1EB83FD60010C255 /* Account.swift in Sources */,
 				0B17F8911EA837ED00A71E79 /* DetailViewController.swift in Sources */,
 				0B17F88F1EA837ED00A71E79 /* MasterViewController.swift in Sources */,
 				0B17F88D1EA837ED00A71E79 /* AppDelegate.swift in Sources */,
+				992561B81EBDB296002B64B4 /* DetailedPromoViewController.swift in Sources */,
 				0B5D40181EBA185C004C2699 /* Server.swift in Sources */,
 				0B5D401A1EBA27FF004C2699 /* TransactionViewController.swift in Sources */,
 				0B17F8C61EA8F6D900A71E79 /* Style.swift in Sources */,
@@ -870,6 +882,7 @@
 				0B5D40401EBBF32D004C2699 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B5D40411EBBF32D004C2699 /* Build configuration list for PBXNativeTarget "SiriExtension" */ = {
 			isa = XCConfigurationList;
@@ -878,6 +891,7 @@
 				0B5D40431EBBF32D004C2699 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
