@@ -71,7 +71,7 @@ class MasterViewController: UITableViewController {
     
     func loadAccountSummary()
     {
-        if let url = Server.getAccounts(username: "superhero") {
+        if let url = Server.getAccounts(username: "iamsam") {
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if error != nil {
                     // Display error message

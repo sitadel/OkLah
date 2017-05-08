@@ -40,11 +40,11 @@ class TransactionViewController: UITableViewController {
 
     // MARK: - Load data
     
-//    user_name=superhero&bank_id=hsbc-test&account=superhsbc
+//    user_name=iamsam&bank_id=at02-0182--01&account=iamsam_spain
 
     func loadTransaction()
     {
-        if let url = Server.getTransactions(username: "superhero", bankId: "hsbc-test", account: "superhsbc") {
+        if let url = Server.getTransactions(username: "iamsam", bankId: "at02-0182--01", account: "iamsam_spain") {
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if error != nil {
                     // Display error message

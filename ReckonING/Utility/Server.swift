@@ -10,9 +10,9 @@ import Foundation
 
 class Server
 {
-    static let baseURL = "https://myreckoning.herokuapp.com/ReckonINGExample/"
-    static let accountURL = baseURL + "getMyAccounts?"
+    static let baseURL = "https://my-reckoning.herokuapp.com/ReckonINGExample/"
     
+    static let accountURL = baseURL + "getMyAccounts?"
     static let transactionURL = baseURL + "getTransactionHistoryById?"
     
     class func getAccounts(username: String) -> URL?
