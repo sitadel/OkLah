@@ -2,7 +2,7 @@
 //  PromoTableViewController.swift
 //  ReckonING
 //
-//  Created by Ivan Jester Cleofe on 4/5/17.
+//  Created by Ivan Jester Cleofe on 12/5/17.
 //  Copyright © 2017 Hackathon. All rights reserved.
 //
 

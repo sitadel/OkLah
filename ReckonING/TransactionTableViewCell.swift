@@ -2,7 +2,7 @@
 //  TransactionTableViewCell.swift
 //  ReckonING
 //
-//  Created by Seet on 4/5/17.
+//  Created by Seet on 12/5/17.
 //  Copyright © 2017 Hackathon. All rights reserved.
 //
 

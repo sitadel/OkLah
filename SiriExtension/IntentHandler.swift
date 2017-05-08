@@ -2,7 +2,7 @@
 //  IntentHandler.swift
 //  SiriExtension
 //
-//  Created by Seet on 5/5/17.
+//  Created by Seet on 12/5/17.
 //  Copyright © 2017 Hackathon. All rights reserved.
 //
 
@@ -27,8 +27,24 @@ extension IntentHandler: INSendPaymentIntentHandling {
         }
         // Make your payment!
         print("Sending \(amount) payment to \(payee)!")
-        makePayment()
-        completion(INSendPaymentIntentResponse(code: .success, userActivity: nil))
+//        makePayment()
+//        completion(INSendPaymentIntentResponse(code: .success, userActivity: nil))
+        
+        if let url = Server.createTransaction(me:"iamsam", fromBankId: "at02-0182--01", fromId: "iamsam_spain", amount: 20, toBankId: "at02-1465--01", toId: "iamben_ing")
+        {
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    // Display error message
+                    print ("error in Siri Intent makePayment");
+                    completion(INSendPaymentIntentResponse(code: .failure, userActivity: nil))
+                    
+                } else {
+                    print ("success in Siri Intent makePayment");
+                    completion(INSendPaymentIntentResponse(code: .success, userActivity: nil))
+                }
+            }
+            task.resume()
+        }
     }
     
     //https://my-reckoning.herokuapp.com/ReckonINGExample/createTransaction/iamsam?frombank_id=at02-0182--01&fromid=iamsam_spain&amount=20&tobank_id=at02-1465--01&toid=iamben_ing
@@ -40,6 +56,7 @@ extension IntentHandler: INSendPaymentIntentHandling {
                 if error != nil {
                     // Display error message
                     print ("error in Siri Intent makePayment");
+
                 } else {
                     print ("success in Siri Intent makePayment");
                 }
