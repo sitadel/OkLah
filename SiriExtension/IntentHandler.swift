@@ -25,8 +25,16 @@ extension IntentHandler: INSendPaymentIntentHandling {
             return completion(INSendPaymentIntentResponse(code: .unspecified, userActivity: nil))
         }
         
+        // Payee not setup yet.
+        if !payee.displayName.contains("Ben")
+        {
+            print("Making payment to non-setup account.")
+            return completion(INSendPaymentIntentResponse(code: .failureNoBankAccount, userActivity: nil))
+        }
+        
         // Make your payment!
-        if let url = Server.createTransaction(me:"iamsam", fromBankId: "at02-0182--01", fromId: "iamsam_spain", amount: 20, toBankId: "at02-1465--01", toId: "iamben_ing")
+        if  let amountAsDecimal = amount.amount,
+            let url = Server.createTransaction(me:"iamsam", fromBankId: "at02-0182--01", fromId: "iamsam_spain", amount: amountAsDecimal, toBankId: "at02-1465--01", toId: "iamben_ing")
         {
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if error != nil {
