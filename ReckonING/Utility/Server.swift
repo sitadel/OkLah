@@ -16,6 +16,8 @@ class Server
     static let transactionURL = baseURL + "getTransactionHistoryById?"
     static let createTransaction = baseURL + "createTransaction/"
     
+    // Return data in this format
+    // {"numOfAccounts":"4","displayname":"iamsam","accountList":[{"bank_id":"at02-0049--01","bank_fullname":"BANCO SANTANDER, S.A.","bank_shortname":"Santander Bank","id":"iamsam_san","number":"7546486303","amount":"5100.0","currency":"EUR","displayname":"iamsam"},{"bank_id":"at02-1465--01","bank_fullname":"ING BANK, N.V. SUCURSAL EN ESPAÃ‘A","bank_shortname":"Netherlands Bank","id":"iamsam_ing","number":"5800748334","amount":"8800.0","currency":"EUR","displayname":"iamsam"},{"bank_id":"at02-0019--01","bank_fullname":"DEUTSCHE BANK, SOCIEDAD ANONIMA ESPAÃ‘OLA","bank_shortname":"German Bank","id":"iamsam_db","number":"1256812617","amount":"11800.0","currency":"EUR","displayname":"iamsam"},{"bank_id":"at02-0182--01","bank_fullname":"BANCO BILBAO VIZCAYA ARGENTARIA, S.A.","bank_shortname":"Spanish Bank","id":"iamsam_spain","number":"9509745252","amount":"77328.9","currency":"EUR","displayname":"iamsam"}]}
     class func getAccounts(username: String) -> URL?
     {
         return URL(string: Server.accountURL + "user_name=" + username)

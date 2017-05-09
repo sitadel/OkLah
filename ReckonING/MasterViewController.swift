@@ -164,7 +164,6 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! String
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailTableViewController
                 
                 if indexPath.row < accounts.count
@@ -172,7 +171,6 @@ class MasterViewController: UITableViewController {
                     controller.account = accounts[indexPath.row]
                 }
                 
-                controller.bankName = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
