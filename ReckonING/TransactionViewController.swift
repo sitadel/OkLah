@@ -134,9 +134,11 @@ class TransactionViewController: UITableViewController {
         cell.backgroundColor = .clear
         
         let trans = self.transactions[indexPath.row]
+        let amount = -1.0 * (trans.amount as NSString).floatValue
+            
         cell.balanceLabel.text = "\(trans.balanceCcy) \(trans.newBalance)"
         cell.dateLabel.text = "\(trans.getTransactionTime())"
-        cell.transactionLabel.text = "\(trans.description) transfers \(trans.amount) to \(trans.toAccount)"
+        cell.transactionLabel.text = "\(trans.description) transfers \(amount) to \(trans.toAccount)"
 
         return cell
         }

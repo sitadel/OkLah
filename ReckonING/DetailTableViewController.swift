@@ -14,8 +14,8 @@ class DetailTableViewController: UITableViewController {
     let NUMBER_OF_SECTION = 3
     let USER_PROFILE_SECTION = 0
     let USER_ACCOUNT_SUMMARY_SECTION = 1
+    let USER_ACCOUNT_SUMMARY_SECTION_NO_ROW = 2
     let USER_TRANSACTION_SECTION = 2
-    //let ACCOUNT_BALANCE = 1
     
     let AC_ASSET = "Available Balance"
     let AC_LIABILITY = "Liability"
@@ -38,11 +38,11 @@ class DetailTableViewController: UITableViewController {
         super.viewDidLoad()
 
         // Check Siri authorization status
+        /*
         if #available(iOS 10.0, *) {
             switch INPreferences.siriAuthorizationStatus()
             {
             case .authorized:
-                print("Siri Authorized")
                 break
             case .denied:
                 print("Siri Denied")
@@ -51,13 +51,14 @@ class DetailTableViewController: UITableViewController {
                 print("Siri Other status")
             }
         }
+         */
         
         // Ask permission to access Siri
         if #available(iOS 10.0, *) {
             INPreferences.requestSiriAuthorization { authorizationStatus in
                 switch authorizationStatus {
                 case .authorized:
-                    print("Authorized")
+                    break;
                 default:
                     print("Not Authorized")
                 }
@@ -109,7 +110,7 @@ class DetailTableViewController: UITableViewController {
         else
         {
             //section == USER_ACCOUNT_SUMMARY_SECTION
-            return 2
+            return USER_ACCOUNT_SUMMARY_SECTION_NO_ROW
         }
     }
 
@@ -151,10 +152,6 @@ class DetailTableViewController: UITableViewController {
                     cell.textLabel?.text = AC_LIABILITY
                     cell.detailTextLabel?.text = "$150,000.00"
                     break
-                case 2:
-                    cell.textLabel?.text = "Loan"
-                    cell.detailTextLabel?.text = "$8,800.00"
-                    break
                 default:
                     break
                 }
@@ -171,10 +168,6 @@ class DetailTableViewController: UITableViewController {
                     cell.textLabel?.text = AC_LIABILITY
                     cell.detailTextLabel?.text = "$6,400.00"
                     break
-                case 2:
-                    cell.textLabel?.text = "Loan"
-                    cell.detailTextLabel?.text = "$80,000.00"
-                    break
                 default:
                     break
                 }
@@ -190,10 +183,6 @@ class DetailTableViewController: UITableViewController {
                 case 1:
                     cell.textLabel?.text = AC_LIABILITY
                     cell.detailTextLabel?.text = "$10,400.00"
-                    break
-                case 2:
-                    cell.textLabel?.text = "Loan"
-                    cell.detailTextLabel?.text = "$9,000.00"
                     break
                 default:
                     break
@@ -213,10 +202,6 @@ class DetailTableViewController: UITableViewController {
                     break
                 case 1:
                     cell.textLabel?.text = AC_LIABILITY
-                    cell.detailTextLabel?.text = "$0.00"
-                    break
-                case 2:
-                    cell.textLabel?.text = "Loan"
                     cell.detailTextLabel?.text = "$0.00"
                     break
                 default:

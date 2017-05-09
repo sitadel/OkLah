@@ -12,14 +12,9 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var accounts = [Account]()
-    var objects = [Any]()
-    var details = [Any]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Initialize data
-        initData()
         
         // Do any additional setup after loading the view, typically from a nib.
         /*
@@ -111,22 +106,12 @@ class MasterViewController: UITableViewController {
     {
         // clear
         self.accounts.removeAll()
-        self.objects.removeAll()
-        self.details.removeAll()
         
         // parse each account
         for account in accounts {
             if let ac = Account(attributes: account)
             {
                 self.accounts.append(ac)
-            }
-            
-            if  let name = account["bank_fullname"] as? String,
-                let amount = account["amount"] as? String,
-                let currency = account["currency"] as? String
-            {
-                self.objects.append(name)
-                self.details.append("\(currency) \(amount)")
             }
         }
         
@@ -140,25 +125,6 @@ class MasterViewController: UITableViewController {
         })
     }
     
-    // MARK: - initialize data
-    
-    func initData()
-    {
-        objects.append("DBS")
-        objects.append("OCBC")
-        objects.append("Citibank")
-        
-        details.append("-$140584.5")
-        details.append("-$71399.5")
-        details.append("$480600.5")
-    }
-    
-    func insertNewObject(_ sender: Any) {
-        objects.insert("New Bank", at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        self.tableView.insertRows(at: [indexPath], with: .automatic)
-    }
-
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -184,7 +150,7 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return accounts.count
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -207,14 +173,8 @@ class MasterViewController: UITableViewController {
         }
         
         // Fill in cell details
-        if let object = objects[indexPath.row] as? String
-        {
-            cell.textLabel?.text = object.description
-        }
-        if let object = details[indexPath.row] as? String
-        {
-            cell.detailTextLabel?.text = object.description
-        }
+        cell.textLabel?.text = accounts[indexPath.row].bankName
+        cell.detailTextLabel?.text = accounts[indexPath.row].cashAmount
         
         return cell
     }
