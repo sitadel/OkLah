@@ -11,11 +11,12 @@ import Intents
 
 class DetailTableViewController: UITableViewController {
 
-    let NUMBER_OF_SECTION = 3
+    let NUMBER_OF_SECTION = 4
     let USER_PROFILE_SECTION = 0
     let USER_ACCOUNT_SUMMARY_SECTION = 1
     let USER_ACCOUNT_SUMMARY_SECTION_NO_ROW = 2
     let USER_TRANSACTION_SECTION = 2
+    let USER_PAYEE_SECTION = 3
     
     let AC_ASSET = "Available Balance"
     let AC_LIABILITY = "Liability"
@@ -210,13 +211,21 @@ class DetailTableViewController: UITableViewController {
             }
             return cell
         }
-        else
+        else if indexPath.section == USER_TRANSACTION_SECTION
         {
-            // USER_TRANSACTION_SECTION
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewTransactionsCell", for: indexPath)
             cell.backgroundColor = UIColor.clear
-
+            
             cell.textLabel?.text = "View Transactions"
+            return cell;
+        }
+        else
+        {
+            // USER_PAYEE_SECTION
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ViewPayeeCell", for: indexPath)
+            cell.backgroundColor = UIColor.clear
+
+            cell.textLabel?.text = "View Payee"
             return cell;
         }
     }
@@ -232,6 +241,12 @@ class DetailTableViewController: UITableViewController {
             // set the delegate
             let detailsViewController: TransactionViewController = (segue.destination as! UINavigationController).topViewController as! TransactionViewController
             detailsViewController.account = self.account
+        }
+        else if segue.identifier == "ViewPayeeSegue"
+        {
+            // set the delegate
+            let detailsViewController: PayeeTableViewController = (segue.destination as! UINavigationController).topViewController as! PayeeTableViewController
+            //detailsViewController.account = self.account
         }
     }
 }

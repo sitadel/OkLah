@@ -26,7 +26,11 @@ extension IntentHandler: INSendPaymentIntentHandling {
         }
         
         // Payee not setup yet.
-        if !payee.displayName.contains("Ben")
+        if payee.displayName.contains("Ben") || payee.displayName.contains("Nadia") || payee.displayName.contains("Ivan")
+        {
+            print("proceed.")
+        }
+        else
         {
             print("Making payment to non-setup account.")
             return completion(INSendPaymentIntentResponse(code: .failureNoBankAccount, userActivity: nil))

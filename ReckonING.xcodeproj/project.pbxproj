@@ -34,6 +34,7 @@
 		0B5D403D1EBBF32D004C2699 /* SiriExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0B5D40241EBBF32D004C2699 /* SiriExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0B75715A1EB83FD60010C255 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7571591EB83FD60010C255 /* Account.swift */; };
 		0B9F612D1EC0351A00E8FAA8 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5D40171EBA185C004C2699 /* Server.swift */; };
+		0BE7A2611EC6D73B0088299B /* PayeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE7A2601EC6D73B0088299B /* PayeeTableViewController.swift */; };
 		992561B81EBDB296002B64B4 /* DetailedPromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992561B41EBDB296002B64B4 /* DetailedPromoViewController.swift */; };
 		992561B91EBDB296002B64B4 /* PromoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992561B51EBDB296002B64B4 /* PromoCell.swift */; };
 		992561BA1EBDB296002B64B4 /* PromoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992561B61EBDB296002B64B4 /* PromoTableViewController.swift */; };
@@ -121,6 +122,7 @@
 		0B5D40351EBBF32D004C2699 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		0B5D40371EBBF32D004C2699 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B7571591EB83FD60010C255 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Utility/Account.swift; sourceTree = "<group>"; };
+		0BE7A2601EC6D73B0088299B /* PayeeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayeeTableViewController.swift; sourceTree = "<group>"; };
 		992561B41EBDB296002B64B4 /* DetailedPromoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedPromoViewController.swift; sourceTree = "<group>"; };
 		992561B51EBDB296002B64B4 /* PromoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoCell.swift; sourceTree = "<group>"; };
 		992561B61EBDB296002B64B4 /* PromoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoTableViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				0B5D40191EBA27FF004C2699 /* TransactionViewController.swift */,
 				0B5D401D1EBB7500004C2699 /* TransactionTableViewCell.swift */,
 				0B17F8BE1EA8C21300A71E79 /* UserProfileCell.swift */,
+				0BE7A2601EC6D73B0088299B /* PayeeTableViewController.swift */,
 				0B17F8C41EA8F6A200A71E79 /* Utility */,
 				0B17F8921EA837ED00A71E79 /* Main.storyboard */,
 				0B17F8951EA837ED00A71E79 /* Assets.xcassets */,
@@ -504,6 +507,7 @@
 				0B17F8BD1EA86C0B00A71E79 /* DetailTableViewController.swift in Sources */,
 				0B5D40161EBA0652004C2699 /* Cache.swift in Sources */,
 				0B17F8BF1EA8C21300A71E79 /* UserProfileCell.swift in Sources */,
+				0BE7A2611EC6D73B0088299B /* PayeeTableViewController.swift in Sources */,
 				992561B91EBDB296002B64B4 /* PromoCell.swift in Sources */,
 				992561BA1EBDB296002B64B4 /* PromoTableViewController.swift in Sources */,
 				0B75715A1EB83FD60010C255 /* Account.swift in Sources */,

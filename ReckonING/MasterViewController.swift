@@ -141,6 +141,10 @@ class MasterViewController: UITableViewController {
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
+        else if segue.identifier == "ShowPayeeSegue"
+        {
+            print("here")
+        }
     }
 
     // MARK: - Table View
